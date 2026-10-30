@@ -1,55 +1,51 @@
 //4. Person, Student, Employee and TeachingAssistant — Hybrid Inheritance
 
-#include<iostream>
-#include<string>
 
+#include <iostream>
 using namespace std;
 
-class Person{
+class Person {
 public:
     string name;
 
-    void getperson(){
-        cout<<"enter your name: ";
+    void getPerson() {
+        cout << "Enter name: ";
         cin >> name;
     }
 };
 
-class Student : virtual public Person{
+class Student : public Person {
 public:
     int roll;
 
-    void getstudent(){
-        cout<<"enter your roll number: ";
+    void getStudent() {
+        cout << "Enter roll number: ";
         cin >> roll;
     }
 };
 
-class Employee : virtual public Person{
+class Employee : public Person {
 public:
     int id;
 
-    void getemployee(){
-        cout<<"enter your employee id: ";
+    void getEmployee() {
+        cout << "Enter employee ID: ";
         cin >> id;
     }
 };
 
-class Teachingassitant : public Student, public Employee{
+class TeachingAssistant : public Student, public Employee {
 public:
-    void display(){
-        cout << "student roll: " << roll;
-        cout << "enployee id: " << id; 
-        cout << "name: " << name;
+    void display() {
+        cout << "Student Roll: " << roll << endl;
+        cout << "Employee ID: " << id << endl;
     }
 };
 
-int main()
-{
-    Teachingassitant T;
-    T.getperson();
-    T.getstudent();
-    T.getemployee();
-    T.display();
+int main() {
+    TeachingAssistant t;
+    t.getStudent();
+    t.getEmployee();
+    t.display();
     return 0;
 }
